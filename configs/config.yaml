@@ -1,0 +1,45 @@
+# Device configurations for edge deployment
+defaults:
+  - device: raspberry_pi
+  - quant: int8
+  - comms: mqtt
+
+# Model configurations
+model:
+  name: "intrusion_detection"
+  input_features: 5
+  hidden_layers: [64, 32]
+  output_classes: 2
+  activation: "relu"
+  dropout: 0.2
+
+# Training configurations
+training:
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+  validation_split: 0.2
+  early_stopping_patience: 10
+
+# Data configurations
+data:
+  n_samples: 10000
+  test_size: 0.2
+  random_state: 42
+  features:
+    - duration
+    - bytes_sent
+    - bytes_received
+    - failed_logins
+    - suspicious_flags
+
+# Evaluation metrics
+evaluation:
+  metrics: [accuracy, precision, recall, f1_score, auc]
+  edge_metrics: [latency_p50, latency_p95, throughput, memory_usage, model_size]
+
+# Logging
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/ids.log"

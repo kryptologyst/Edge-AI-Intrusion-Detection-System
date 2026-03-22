@@ -1,0 +1,32 @@
+# Communication configurations
+protocol: "mqtt"
+broker: "localhost"
+port: 1883
+qos: 1
+
+# Topics
+topics:
+  sensor_data: "ids/sensor/data"
+  alerts: "ids/alerts"
+  status: "ids/status"
+  commands: "ids/commands"
+
+# Security
+security:
+  tls_enabled: false
+  username: null
+  password: null
+  client_id: "ids_edge_device"
+
+# Performance
+performance:
+  keepalive: 60
+  reconnect_delay: 5
+  max_reconnect_attempts: 10
+  buffer_size: 1024
+
+# Fallback options
+fallback:
+  enabled: true
+  offline_cache_size: 1000
+  retry_attempts: 3

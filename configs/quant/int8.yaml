@@ -1,0 +1,27 @@
+# Quantization configurations
+method: "int8"
+technique: "post_training"
+
+# Calibration settings
+calibration:
+  dataset_size: 1000
+  batch_size: 32
+  num_batches: 32
+
+# Quantization parameters
+quantization:
+  per_channel: true
+  symmetric: true
+  narrow_range: false
+  
+# Accuracy-aware quantization
+accuracy_aware:
+  enabled: true
+  target_accuracy_drop: 0.02
+  max_iterations: 5
+
+# Export formats
+export_formats:
+  - tflite
+  - onnx
+  - openvino

@@ -1,0 +1,26 @@
+# Device-specific configurations
+target: "raspberry_pi"
+architecture: "arm64"
+os: "linux"
+
+# Hardware specifications
+hardware:
+  cpu_cores: 4
+  memory_gb: 4
+  storage_gb: 32
+  gpu: false
+  npu: false
+
+# Performance constraints
+constraints:
+  max_latency_ms: 100
+  max_memory_mb: 512
+  max_model_size_mb: 10
+  max_power_watts: 5
+
+# Runtime optimizations
+optimizations:
+  cpu_affinity: true
+  numa_aware: false
+  thread_pinning: true
+  memory_mapping: true
